@@ -2,12 +2,11 @@ from flask import Flask, render_template, request, url_for
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods = ["GET", "POST"])
 def index():
-	return render_template('index.html')
-	
-@app.route('/Home/', methods = ["GET","POST"])
-def home():
+  if request.method == "GET":
+	  return render_template('index.html')
+  
 	pw = request.form['pw']
 	if pw == 'vjsg':
 		return render_template('home.html')
