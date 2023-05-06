@@ -5,9 +5,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
   return render_template('index.html')
-  
-@app.route('/home')
-def home():
+
   pw = request.form['pw']
   if pw == 'vjsg':
     return render_template('home.html')
