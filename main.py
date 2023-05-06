@@ -1,24 +1,16 @@
-import sqlite3
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 
 app = Flask(__name__)
 
 @app.route('/')
+def index():
+	return render_template('index.html')
+	
+@app.route('/Home/', methods = ["POST"])
 def home():
-	return render_template('form.html')
-	
-@app.route('/result/', methods = ["POST"])
-def results():
-	conn = sqlite3.connect('database.db')
-	
-	info = request.form['info']
-	data = {}
-	
-	for info in conn.execute("SELECT * FROM table WHERE info = ?", (info,)):
-		data[info] = info
-		
-	return render_template('result.html', info = info, data = data)
-
+	pw = request.form['pw']
+	if pw == 'vjsg'
+		return render_template('home.html')
 
 if __name__ == '__main__':
 	app.run()
