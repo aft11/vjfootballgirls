@@ -11,7 +11,6 @@ def home():
   pw = request.form['pw']
   if pw == 'vjsg':
     return render_template('home.html')
-  return render_template('index.html')
 
 if '__main__' == __name__:
 	app.run()
