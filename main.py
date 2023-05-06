@@ -6,10 +6,10 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html')
 	
-@app.route('/Home/', methods = ["POST"])
+@app.route('/Home/', methods = ["GET","POST"])
 def home():
 	pw = request.form['pw']
-	if pw == 'vjsg'
+	if pw == 'vjsg':
 		return render_template('home.html')
 
 if __name__ == '__main__':
